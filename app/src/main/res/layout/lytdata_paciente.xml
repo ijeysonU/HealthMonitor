@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+
+            <ImageView
+                android:id="@+id/imgFc"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="11dp"
+                android:padding="4dp"
+                android:src="@drawable/ic_baseline_favorite_24" />
+        <TextView
+            android:id="@+id/txtFrecuencia"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="218dp"
+            android:layout_marginTop="17dp"
+            android:layout_toEndOf="@+id/imgFc"
+            android:text="70 bpm"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="#000000"
+            android:textSize="12sp" />
+        <ImageView
+            android:id="@+id/imgSaturacion"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="9dp"
+            android:src="@drawable/saturacionoxigeno" />
+
+
+        <TextView
+            android:id="@+id/txtSaturacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="17dp"
+            android:layout_toEndOf="@+id/imgSaturacion"
+            android:text="99%"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+            android:textColor="#585858"
+            android:textSize="12sp" />
+
+
+        <ImageView
+            android:id="@+id/imgTemperatura"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/temperatura" />
+        <TextView
+            android:id="@+id/txtTemperatura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="17dp"
+            android:layout_toEndOf="@+id/imgTemperatura"
+            android:text="35 C"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
+            android:textColor="#585858"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/imgFecha"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/ic_baseline_event_available_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFechaRegistro"
+            android:layout_toEndOf="@id/imgFecha"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="17dp"
+            android:text="dd/mm/yyyy"
+            android:textSize="12sp"/>
+
+
+        </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registros_pacientes"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registros"
+        android:textSize="28sp"
+        android:fontFamily="@font/bebas_neue"/>
+
+    <TextView
+        android:id="@+id/txtPaciente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:fontFamily="@font/bebas_neue"
+        android:text="Paciente"
+        android:textColor="@color/black"
+        android:textSize="29sp" />
+
+    <Button
+        android:id="@+id/btnSolicitarDatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0sp"
+        android:layout_marginTop="105sp"
+        android:text="Solicitar datos" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150sp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rcvDatos"/>
+    </LinearLayout>
+
+</FrameLayout>

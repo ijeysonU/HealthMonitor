@@ -7,7 +7,7 @@
     >
     <fragment
         android:id="@+id/blank_fragment"
-        android:name="com.example.healthmonitor."
+        android:name="com.example.healthmonitor.blank_fragmen"
         android:label="Home"
         tools:layout="@layout/fragment_blank_fragmen"/>
 </navigation>

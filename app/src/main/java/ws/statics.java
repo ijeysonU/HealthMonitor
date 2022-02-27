@@ -10,25 +10,11 @@ import com.google.gson.JsonParser;
 import org.json.JSONObject;
 
 public class statics {
-    public String urlGeneral = "http://192.168.0.106:8080/Pi8_v4/webresources/wsHMonitor/";
-    private String usuario;
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
-    private String rol;
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
+    public static String urlGeneral = "http://192.168.0.106:8080/Pi8_v4/webresources/wsHMonitor/";
+    public static String usuario;
+    public static String paciente;
+    public static String npaciente;
+    public static String rol;
 
     public static String JsonToString(JsonObject jso, String param, String defaulx) {
         try {

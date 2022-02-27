@@ -3,10 +3,7 @@ package com.example.healthmonitor;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,26 +32,25 @@ import ws.statics;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link pacientes#newInstance} factory method to
+ * Use the {@link registros_pacientes#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class pacientes extends Fragment {
-
+public class registros_pacientes extends Fragment {
+    View view;
+    RecyclerView res;
+    ArrayList<cSignosVitales> cSv;
+    private RequestQueue rq;
+    String URL = "";
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    View view;
-    RecyclerView res;
-    ArrayList<cPacientes> cPac;
-    private RequestQueue rq;
-    String URL = "";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public pacientes() {
+    public registros_pacientes() {
         // Required empty public constructor
     }
 
@@ -63,11 +60,11 @@ public class pacientes extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment pacientes.
+     * @return A new instance of fragment registros_pacientes.
      */
     // TODO: Rename and change types and number of parameters
-    public static pacientes newInstance(String param1, String param2) {
-        pacientes fragment = new pacientes();
+    public static registros_pacientes newInstance(String param1, String param2) {
+        registros_pacientes fragment = new registros_pacientes();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -88,18 +85,22 @@ public class pacientes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_pacientes, container, false);
-        res = view.findViewById(R.id.rcvPacientes);
+        view = inflater.inflate(R.layout.fragment_registros_pacientes, container, false);
+        res = view.findViewById(R.id.rcvDatos);
         rq = Volley.newRequestQueue(getContext());
         jsonObjectRequestRes();
         res.setHasFixedSize(true);
         res.setLayoutManager(new LinearLayoutManager(getContext()));
         res.setItemAnimator(new DefaultItemAnimator());
-
+        TextView pc = view.findViewById(R.id.txtPaciente);
+        pc.setText(statics.npaciente);
         return view;
     }
+
     private void jsonObjectRequestRes(){
-        URL = statics.urlGeneral+"wListarPacientes?us="+statics.usuario;
+
+
+        URL = statics.urlGeneral+"wListarRegistrosPac?us="+statics.usuario+"&iPac="+statics.paciente;
         System.out.println(URL);
         JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,
@@ -115,24 +116,11 @@ public class pacientes extends Fragment {
                             LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getContext(),
                                     resId);
                             res.setLayoutAnimation(animation);
-                            cPac = cPacientes.JsonObjectsBuild(jsonArray);
-                            adaptadorPacientes adaptador_resumen = new adaptadorPacientes(getContext(), cPac);
-                            res.setAdapter(adaptador_resumen);
-                            adaptador_resumen.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    String ideEva = cPac.get(res.getChildAdapterPosition(v)).getIdentificacion();
-                                    statics.paciente = ideEva;
-                                    statics.npaciente = cPac.get(res.getChildAdapterPosition(v)).getPaciente();
-                                    FragmentManager manager = getActivity().getSupportFragmentManager();
-                                    registros_pacientes fragment1 = new registros_pacientes();
-                                    manager.beginTransaction()
-                                            .replace(R.id.content_frame, fragment1)
-                                            .addToBackStack(null)
-                                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                                            .commit();
-                                }
-                            });
+                            cSv = cSignosVitales.JsonObjectsBuild(jsonArray);
+
+                            adaptadorSV adaptador_sv= new adaptadorSV(getContext(), cSv);
+                            res.setAdapter(adaptador_sv);
+
                         }catch (JSONException ex){
                             System.out.println("Error: "+ex.toString());
                             //Toast.makeText(ex.getMessage(),Toast.LENGTH_LONG);
@@ -148,5 +136,4 @@ public class pacientes extends Fragment {
 
         rq.add(jsonArrayRequest);
     }
-
 }

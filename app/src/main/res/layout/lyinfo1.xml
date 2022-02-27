@@ -36,21 +36,20 @@
 
             <TextView
                 android:id="@+id/lblnombre"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="125dp"
                 android:layout_marginTop="15dp"
-                android:layout_toEndOf="@+id/txtNumeroPacientes"
+                android:layout_toEndOf="@+id/txtDispositivos"
                 android:text="Registered \n devices"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#585858"
-                android:textSize="11sp"
-                />
+                android:textSize="11sp" />
 
             <TextView
-                android:id="@+id/txtNumeroPacientes"
+                android:id="@+id/txtDispositivos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"

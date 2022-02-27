@@ -4,10 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,31 +45,45 @@ public class MainActivity extends AppCompatActivity {
 
     private RequestQueue rq;
     String URL = "";
-    statics st = new statics();
+    //statics st = new statics();
     String validador = "";
+    String us;
+    String usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         rq = Volley.newRequestQueue(this);
     }
 
     public void login(View view){
 
-        //obtiene los daots (usuario y clave) para logearse
-        String data = "";
-        com.google.android.material.textfield.TextInputLayout dd  = (TextInputLayout)  findViewById(R.id.txtEmail);
 
-        String us = "us="+dd.getEditText().getText();
-        st.setUsuario(us);
+        String data = "";
+        TextInputLayout dd  = (TextInputLayout)  findViewById(R.id.txtEmail);
+        us = "us="+dd.getEditText().getText();
+        usuario = dd.getEditText().getText().toString();
+        statics.usuario=(usuario);
         TextInputLayout pss = (TextInputLayout) findViewById(R.id.txtpassword);
         String ps = "ps="+pss.getEditText().getText();
         data = us+"&"+ps;
-        jsonObjectRequest(data);
+        if (dd.getEditText().length()<=0
+                || pss.getEditText().length()<=0){
+            Toast.makeText(MainActivity.this, "Incomplete credentials", Toast.LENGTH_SHORT).show();
+        }else{
+            jsonObjectRequest(data);
+        }
+
+    }
+    public void signIn(View view){
+        Intent intent = new Intent(MainActivity.this, RegistroPersona.class);
+        startActivity(intent);
     }
 
+
     private void jsonObjectRequest(String dt){
-        URL = st.urlGeneral+"wLogin?"+dt;
+        URL = statics.urlGeneral+"wLogin?"+dt;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 URL,
@@ -84,13 +100,19 @@ public class MainActivity extends AppCompatActivity {
                                     resId);
                             JSONObject jo = new JSONObject(response.get(0).toString());
                             validador = jo.getString("valver");
-                            st.setRol(validador);
+                            statics.rol=(validador);
                             System.out.println("Valor de tipo de usuario:"+validador);
-                            Intent intent = new Intent(MainActivity.this, MainMenu.class);
-                            Bundle b = new Bundle();
-                            b.putString("CorreoUser", validador);
-                            intent.putExtras(b);
-                            startActivity(intent);
+                            if (validador.equals("404")){
+                                Toast.makeText(MainActivity.this, "User not found", Toast.LENGTH_LONG).show();
+                            }else{
+                                Intent intent = new Intent(MainActivity.this, MainMenu2.class);
+                                Bundle b = new Bundle();
+                                b.putString("CorreoUser", usuario);
+                                b.putString("Rol", validador);
+                                intent.putExtras(b);
+                                startActivity(intent);
+                            }
+
                         }catch (JSONException ex){
                             System.out.println("Error: "+ex.toString());
                         }
