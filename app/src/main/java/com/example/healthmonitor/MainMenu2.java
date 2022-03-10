@@ -108,9 +108,9 @@ public class MainMenu2 extends AppCompatActivity {
     private void changeHeaderView(View headMenu) {
         //se modifica el label, estableciendo el nombre del usuario logeado.
 
-        String userName = valorUser;
+        String userName = statics.usuario;
         userName = userName.length() > 15 ? userName.substring(0, 13) + "..." : userName;
-
+        ((TextView)headMenu.findViewById(R.id.txtTipoUser)).setText(statics.tusuario);
         ((TextView) headMenu.findViewById(R.id.profile_username)).setText(userName);
         //de igual manera, se modifica la imagen por la foto del usuario
         ImageView userImage = headMenu.findViewById(R.id.profile_image);
@@ -197,7 +197,7 @@ public class MainMenu2 extends AppCompatActivity {
             tmp.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    loadFragment(new pacientes());
+                    loadFragment(new conectarbt());
                     return true;
                 }
             });
@@ -206,6 +206,12 @@ public class MainMenu2 extends AppCompatActivity {
             SubMenu navigation_admin = menu.addSubMenu("Dispositivos");
             tmp = navigation_admin.add("Mis dispositivos").setIcon(R.drawable.ic_baseline_settings_cell_24);
             menus.add(tmp);
+            tmp.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    return false;
+                }
+            });
             tmp = navigation_admin.add("Horarios de informe de los dispositivos").setIcon(R.drawable.ic_baseline_calendar_today_24);
             menus.add(tmp);
         }

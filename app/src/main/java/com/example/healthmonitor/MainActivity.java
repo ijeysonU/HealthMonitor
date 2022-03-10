@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 || pss.getEditText().length()<=0){
             Toast.makeText(MainActivity.this, "Incomplete credentials", Toast.LENGTH_SHORT).show();
         }else{
+            handleSSLHandshake();
             jsonObjectRequest(data);
         }
 
@@ -100,14 +101,17 @@ public class MainActivity extends AppCompatActivity {
                                     resId);
                             JSONObject jo = new JSONObject(response.get(0).toString());
                             validador = jo.getString("valver");
+                            String vuser = jo.getString("usr");
                             statics.rol=(validador);
+                            statics.usuario=vuser;
+                            statics.tusuario=jo.getString("tusr");
                             System.out.println("Valor de tipo de usuario:"+validador);
                             if (validador.equals("404")){
                                 Toast.makeText(MainActivity.this, "User not found", Toast.LENGTH_LONG).show();
                             }else{
                                 Intent intent = new Intent(MainActivity.this, MainMenu2.class);
                                 Bundle b = new Bundle();
-                                b.putString("CorreoUser", usuario);
+                                b.putString("CorreoUser", vuser);
                                 b.putString("Rol", validador);
                                 intent.putExtras(b);
                                 startActivity(intent);

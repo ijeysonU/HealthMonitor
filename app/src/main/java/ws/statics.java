@@ -10,10 +10,11 @@ import com.google.gson.JsonParser;
 import org.json.JSONObject;
 
 public class statics {
-    public static String urlGeneral = "http://192.168.0.106:8080/Pi8_v4/webresources/wsHMonitor/";
+    public static String urlGeneral = "http://192.168.0.102:8080/Pi8_v4/webresources/wsHMonitor/";
     public static String usuario;
     public static String paciente;
     public static String npaciente;
+    public static String tusuario;
     public static String rol;
 
     public static String JsonToString(JsonObject jso, String param, String defaulx) {
