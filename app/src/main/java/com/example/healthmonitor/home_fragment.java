@@ -98,7 +98,7 @@ public class home_fragment extends Fragment {
         rq = Volley.newRequestQueue(getContext());
         rq = Volley.newRequestQueue(getContext());
         //recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        String dt = "us="+statics.usuario;
+        String dt = "us="+statics.cusuario;
         jsonObjectRequestRes(dt);
         jsonObjectRequesti1(dt);
         jsonObjectRequesti2(dt);
@@ -117,7 +117,7 @@ public class home_fragment extends Fragment {
     }
 
     private void jsonObjectRequestRes(String dt){
-        URL = statics.urlGeneral+"wResumen?us="+statics.usuario;
+        URL = statics.urlGeneral+"wResumen?us="+statics.cusuario;
         JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 URL,
@@ -155,7 +155,7 @@ public class home_fragment extends Fragment {
     }
 
     private void jsonObjectRequesti1(String dt){
-        URL = statics.urlGeneral+"wResumenDispositivos?us="+statics.usuario;
+        URL = statics.urlGeneral+"wResumenDispositivos?us="+statics.cusuario;
         JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 URL,
@@ -193,7 +193,7 @@ public class home_fragment extends Fragment {
     }
 
     private void jsonObjectRequesti2(String dt){
-        URL = statics.urlGeneral+"wResumenPacientes?us="+statics.usuario;
+        URL = statics.urlGeneral+"wResumenPacientes?us="+statics.cusuario;
         JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 URL,

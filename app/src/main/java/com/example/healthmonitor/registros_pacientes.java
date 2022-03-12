@@ -100,7 +100,7 @@ public class registros_pacientes extends Fragment {
     private void jsonObjectRequestRes(){
 
 
-        URL = statics.urlGeneral+"wListarRegistrosPac?us="+statics.usuario+"&iPac="+statics.paciente;
+        URL = statics.urlGeneral+"wListarRegistrosPac?us="+statics.cusuario+"&iPac="+statics.paciente;
         System.out.println(URL);
         JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,

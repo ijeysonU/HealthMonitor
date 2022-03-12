@@ -99,7 +99,7 @@ public class pacientes extends Fragment {
         return view;
     }
     private void jsonObjectRequestRes(){
-        URL = statics.urlGeneral+"wListarPacientes?us="+statics.usuario;
+        URL = statics.urlGeneral+"wListarPacientes?us="+statics.cusuario;
         System.out.println(URL);
         JsonObjectRequest jsonArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,

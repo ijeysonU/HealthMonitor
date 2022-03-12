@@ -13,9 +13,9 @@
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/activity_operation.xml" value="0.1" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/activity_registro_persona.xml" value="0.33" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/activity_resumen.xml" value="0.209375" />
-        <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/adapter_characteristic.xml" value="0.1" />
-        <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/adapter_device.xml" value="0.209375" />
-        <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/adapter_service.xml" value="0.1" />
+        <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/adapter_characteristic.xml" value="0.33" />
+        <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/adapter_device.xml" value="0.33" />
+        <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/adapter_service.xml" value="0.18" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/bluetoothdevice_item.xml" value="0.1" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/communicate_page.xml" value="0.1" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/device_list_item.xml" value="0.25" />
@@ -27,6 +27,7 @@
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_home_fragment.xml" value="0.1" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_nodisponible_fragment.xml" value="0.209375" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_operation_b_t.xml" value="0.1" />
+        <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_paciente_home.xml" value="0.159375" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_pacientes.xml" value="0.209375" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_registros_pacientes.xml" value="0.33" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_service_list.xml" value="0.1" />

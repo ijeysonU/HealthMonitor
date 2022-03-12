@@ -101,7 +101,12 @@ public class MainMenu2 extends AppCompatActivity {
 
         dinamicMenu(bodyMenu);
         //jsonObjectRequest(valorUser);
-        loadFragment(new home_fragment());
+            if (statics.rol.equals("2")){
+                loadFragment(new paciente_home());
+            }else{
+                loadFragment(new home_fragment());
+            }
+
 
     }
 
@@ -109,7 +114,7 @@ public class MainMenu2 extends AppCompatActivity {
         //se modifica el label, estableciendo el nombre del usuario logeado.
 
         String userName = statics.usuario;
-        userName = userName.length() > 15 ? userName.substring(0, 13) + "..." : userName;
+        userName = userName.length() > 30 ? userName.substring(0, 25) + "..." : userName;
         ((TextView)headMenu.findViewById(R.id.txtTipoUser)).setText(statics.tusuario);
         ((TextView) headMenu.findViewById(R.id.profile_username)).setText(userName);
         //de igual manera, se modifica la imagen por la foto del usuario
@@ -168,58 +173,65 @@ public class MainMenu2 extends AppCompatActivity {
 
         List<MenuItem> menus = new ArrayList<MenuItem>();
 
-        MenuItem portal = menu.add("Inicio");
+        MenuItem portal = menu.add("Home");
         portal.setIcon(R.drawable.ic_baseline_home_24);
         portal.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                loadFragment(new home_fragment());
+                if (statics.rol.equals("2")){
+                    loadFragment(new paciente_home());
+                }else{
+                    loadFragment(new home_fragment());
+                }
+
                 return true;
             }
         });
 
-        MenuItem profile = menu.add("Perfil de usuario");
+        MenuItem profile = menu.add("User profile");
         profile.setIcon(R.drawable.ic_baseline_person_24);
         profile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                loadFragment(new pacientes());
+                //loadFragment(new pacientes());
                 return true;
             }
         });
 
         MenuItem tmp;
         if (rol.equals("3") || rol.equals("4")) {
-            SubMenu navigation_root = menu.addSubMenu("Pacientes");
-            tmp = navigation_root.add("Mis pacientes")
+            SubMenu navigation_root = menu.addSubMenu("Patients");
+            tmp = navigation_root.add("My patients")
                     .setIcon(R.drawable.ic_baseline_airline_seat_recline_extra_24);
 
             tmp.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    loadFragment(new conectarbt());
+                    loadFragment(new pacientes());
+
                     return true;
                 }
             });
         }
         if (rol.matches("[4]")) {
-            SubMenu navigation_admin = menu.addSubMenu("Dispositivos");
-            tmp = navigation_admin.add("Mis dispositivos").setIcon(R.drawable.ic_baseline_settings_cell_24);
+            SubMenu navigation_admin = menu.addSubMenu("Devices");
+            tmp = navigation_admin.add("My Devices").setIcon(R.drawable.ic_baseline_settings_cell_24);
             menus.add(tmp);
             tmp.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
+                    loadFragment(new conectarbt());
                     return false;
                 }
             });
-            tmp = navigation_admin.add("Horarios de informe de los dispositivos").setIcon(R.drawable.ic_baseline_calendar_today_24);
+            tmp = navigation_admin.add("Reporting Hours").setIcon(R.drawable.ic_baseline_calendar_today_24);
             menus.add(tmp);
         }
 
 
-        SubMenu navigation_others = menu.addSubMenu("Otros");
+        SubMenu navigation_others = menu.addSubMenu("Others");
 
-        tmp = navigation_others.add("Cerrar Sesión");
+        tmp = navigation_others.add("Sign out");
         tmp.setIcon(R.drawable.ic_baseline_exit_to_app_24);
         tmp.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override

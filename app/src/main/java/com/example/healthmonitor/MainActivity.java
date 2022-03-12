@@ -104,11 +104,15 @@ public class MainActivity extends AppCompatActivity {
                             String vuser = jo.getString("usr");
                             statics.rol=(validador);
                             statics.usuario=vuser;
+                            statics.cusuario=usuario;
                             statics.tusuario=jo.getString("tusr");
                             System.out.println("Valor de tipo de usuario:"+validador);
                             if (validador.equals("404")){
                                 Toast.makeText(MainActivity.this, "User not found", Toast.LENGTH_LONG).show();
                             }else{
+                                if (validador=="2"){
+
+                                }
                                 Intent intent = new Intent(MainActivity.this, MainMenu2.class);
                                 Bundle b = new Bundle();
                                 b.putString("CorreoUser", vuser);
