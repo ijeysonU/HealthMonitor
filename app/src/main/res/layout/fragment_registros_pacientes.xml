@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registros"
+        android:text="Records"
         android:textSize="28sp"
         android:fontFamily="@font/bebas_neue"/>
 
@@ -29,12 +29,49 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0sp"
         android:layout_marginTop="105sp"
-        android:text="Solicitar datos" />
+        android:text="Request data" />
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Heart rate"
+        android:layout_marginTop="165sp"
+        android:textStyle="bold"
+        android:layout_marginStart="12dp"/>
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="SPO"
+        android:layout_marginTop="165sp"
+        android:textStyle="bold"
+        android:layout_marginStart="105dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="175sp"
+        android:text="2"
+        android:textSize="10dp"
+        android:textStyle="bold" />
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Temperature"
+        android:layout_marginTop="165sp"
+        android:textStyle="bold"
+        android:layout_marginStart="160dp"/>
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Date"
+        android:layout_marginTop="165sp"
+        android:textStyle="bold"
+        android:layout_marginStart="255dp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/separador_v1"
+        android:layout_marginTop="186dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150sp">
+        android:layout_marginTop="190sp">
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

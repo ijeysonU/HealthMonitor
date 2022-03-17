@@ -10,7 +10,7 @@ import com.google.gson.JsonParser;
 import org.json.JSONObject;
 
 public class statics {
-    public static String urlGeneral = "http://192.168.0.102:8080/Pi8_v4/webresources/wsHMonitor/";
+    public static String urlGeneral = "http://192.168.0.104:8080/Pi8_v4/webresources/wsHMonitor/";
     public static String usuario;
     public static String cusuario;
     public static String paciente;

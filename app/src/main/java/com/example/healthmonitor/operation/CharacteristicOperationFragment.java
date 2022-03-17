@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-public class CharacteristicOperationFragment extends Fragment {
+public class CharacteristicOperationFragment extends Fragment implements Runnable{
 
     public static final int PROPERTY_READ = 1;
     public static final int PROPERTY_WRITE = 2;
@@ -39,6 +39,7 @@ public class CharacteristicOperationFragment extends Fragment {
     public static final int PROPERTY_INDICATE = 5;
 
     private LinearLayout layout_container;
+    Thread hilo;
     private final List<String> childList = new ArrayList<>();
 
     @Override
@@ -55,7 +56,7 @@ public class CharacteristicOperationFragment extends Fragment {
     public void showData() {
         final BleDevice bleDevice = ((OperationActivity) getActivity()).getBleDevice();
         final BluetoothGattCharacteristic characteristic = ((OperationActivity) getActivity()).getCharacteristic();
-        final int charaProp = ((OperationActivity) getActivity()).getCharaProp();
+        final int charaProp = PROPERTY_READ;
         String child = characteristic.getUuid().toString() + String.valueOf(charaProp);
 
         for (int i = 0; i < layout_container.getChildCount(); i++) {
@@ -93,7 +94,9 @@ public class CharacteristicOperationFragment extends Fragment {
                                             runOnUiThread(new Runnable() {
                                                 @Override
                                                 public void run() {
+                                                    hilo = new Thread(this);
                                                     addText(txt, HexUtil.formatHexString(data, true));
+                                                    hilo.start();
                                                 }
                                             });
                                         }
@@ -344,8 +347,8 @@ public class CharacteristicOperationFragment extends Fragment {
         }
         //System.out.println(output.toString().trim());
         String valor = output.toString();
-        textView.append(valor);
-        textView.append("\n");
+        textView.setText(valor);
+
         int offset = textView.getLineCount() * textView.getLineHeight();
         if (offset > textView.getHeight()) {
             textView.scrollTo(0, offset - textView.getHeight());
@@ -353,4 +356,17 @@ public class CharacteristicOperationFragment extends Fragment {
     }
 
 
+    @Override
+    public void run() {
+        Thread th = Thread.currentThread();
+        while(th== hilo){
+            showData();
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 }

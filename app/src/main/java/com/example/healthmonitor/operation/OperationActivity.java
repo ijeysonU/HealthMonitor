@@ -27,6 +27,8 @@ public class OperationActivity extends AppCompatActivity implements Observer {
     private BleDevice bleDevice;
     private BluetoothGattService bluetoothGattService;
     private BluetoothGattCharacteristic characteristic;
+    public static final int PROPERTY_READ = 1;
+
     private int charaProp;
 
     //private Toolbar toolbar;
@@ -85,7 +87,8 @@ public class OperationActivity extends AppCompatActivity implements Observer {
         titles = new String[]{
                 getString(R.string.service_list),
                 getString(R.string.characteristic_list),
-                getString(R.string.console)};
+                getString(R.string.console)
+        };
     }
 
     private void initPage() {
@@ -109,7 +112,11 @@ public class OperationActivity extends AppCompatActivity implements Observer {
         fragments.add(new CharacteristicListFragment());
         fragments.add(new CharacteristicOperationFragment());
         for (Fragment fragment : fragments) {
-            getSupportFragmentManager().beginTransaction().add(R.id.fragment, fragment).hide(fragment).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment, fragment)
+                    .hide(fragment)
+                    .commit();
         }
     }
 

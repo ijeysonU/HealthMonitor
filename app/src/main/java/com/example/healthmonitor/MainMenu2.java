@@ -193,7 +193,7 @@ public class MainMenu2 extends AppCompatActivity {
         profile.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                //loadFragment(new pacientes());
+                loadFragment(new PerfilUsuario());
                 return true;
             }
         });

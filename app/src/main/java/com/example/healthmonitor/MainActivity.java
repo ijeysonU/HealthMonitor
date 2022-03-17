@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void jsonObjectRequest(String dt){
         URL = statics.urlGeneral+"wLogin?"+dt;
+        System.out.println(URL);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 URL,

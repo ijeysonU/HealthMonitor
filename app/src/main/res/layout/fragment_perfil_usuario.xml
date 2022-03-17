@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilUsuario">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/user"
+
+            tools:layout_editor_absoluteY="85dp" />
+
+        <TextView
+            android:id="@+id/txtNombreUsuariop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Nombre de usuario"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:layout_marginTop="200dp"
+            tools:layout_editor_absoluteY="282dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type of user:"
+            android:textAlignment="center"
+            android:layout_marginTop="250dp" />
+
+        <TextView
+            android:id="@+id/txtTipoUsuariop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TUsuario"
+            android:layout_marginTop="275dp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User email:"
+            android:textAlignment="center"
+            android:layout_marginTop="310dp" />
+
+        <TextView
+            android:id="@+id/txtCorreoP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CORREOUsuario"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="335dp" />
+
+
+</FrameLayout>

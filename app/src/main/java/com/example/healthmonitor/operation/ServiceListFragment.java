@@ -48,6 +48,8 @@ public class ServiceListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 BluetoothGattService service = mResultAdapter.getItem(position);
+                //operationBT dd = new operationBT();
+                //dd.getActivity().setBluetoothGattService(service);
                 ((OperationActivity) getActivity()).setBluetoothGattService(service);
                 ((OperationActivity) getActivity()).changePage(1);
             }
