@@ -571,7 +571,6 @@ public class paciente_home extends Fragment implements View.OnClickListener, Run
                                                             //for (int i = 0; i< data.length; i++){
                                                             //    System.out.println(data[i]);
                                                             //}
-
                                                             addText(txt, HexUtil.formatHexString(data, true));
                                                             //System.out.println(HexUtil.formatHexString(data, true));
                                                             hilo.start();
@@ -606,11 +605,13 @@ public class paciente_home extends Fragment implements View.OnClickListener, Run
     private void addText(TextView textView, String content) {
         String hex = content;
         hex = hex.replace(" ", "");
+
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < hex.length(); i+=2) {
             String str = hex.substring(i, i+2);
             output.append((char)Integer.parseInt(str, 16));
         }
+        System.out.println(output.toString().trim());
         //System.out.println(output.toString().trim());
         String valor = output.toString();
         textView.setText(valor);
@@ -627,7 +628,7 @@ public class paciente_home extends Fragment implements View.OnClickListener, Run
         while(th== hilo){
             //showData();
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

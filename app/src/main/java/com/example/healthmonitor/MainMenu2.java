@@ -102,7 +102,7 @@ public class MainMenu2 extends AppCompatActivity {
         dinamicMenu(bodyMenu);
         //jsonObjectRequest(valorUser);
             if (statics.rol.equals("2")){
-                loadFragment(new paciente_home());
+                loadFragment(new paciente_paciente());
             }else{
                 loadFragment(new home_fragment());
             }
@@ -179,7 +179,7 @@ public class MainMenu2 extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (statics.rol.equals("2")){
-                    loadFragment(new paciente_home());
+                    loadFragment(new paciente_paciente());
                 }else{
                     loadFragment(new home_fragment());
                 }

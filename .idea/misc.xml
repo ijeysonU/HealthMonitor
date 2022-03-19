@@ -29,6 +29,7 @@
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_nodisponible_fragment.xml" value="0.209375" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_operation_b_t.xml" value="0.1" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_paciente_home.xml" value="0.25" />
+        <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_paciente_paciente.xml" value="0.25" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_pacientes.xml" value="0.209375" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_perfil_usuario.xml" value="0.5" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/fragment_registros_pacientes.xml" value="0.33" />
@@ -37,6 +38,7 @@
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/layout_characteric_operation.xml" value="0.22" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/layout_characteric_operation_button.xml" value="0.1" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/layout_characteric_operation_et.xml" value="0.1" />
+        <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/lydata_signosvitales.xml" value="0.5" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/lyinfo1.xml" value="0.5" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/lyinfo2.xml" value="0.67" />
         <entry key="..\:/Users/jeyso/StudioProjects/HealthMonitor/app/src/main/res/layout/lyt_resumen1.xml" value="0.33" />
